@@ -1,0 +1,422 @@
+[
+  {
+    "category": "static",
+    "scene": 1,
+    "duration": 15.062012,
+    "width": 2496,
+    "height": 840,
+    "fps": 16,
+    "labelFontSize": 42,
+    "labelBandHeight": 60,
+    "order": [
+      "Input frame",
+      "GT video",
+      "Geometry Forcing",
+      "Gen3R",
+      "Gen3C",
+      "Uni3C",
+      "Wan",
+      "Ours (GAD)"
+    ],
+    "sources": [
+      "static/scene1/input-frame.png",
+      "static/scene1/gt.mp4",
+      "static/scene1/GeometryForcing.mp4",
+      "static/scene1/Gen3R.mp4",
+      "static/scene1/Gen3C.mp4",
+      "static/scene1/Uni3C.mp4",
+      "static/scene1/wan-flow-only.mp4",
+      "static/scene1/ours.mp4"
+    ]
+  },
+  {
+    "category": "static",
+    "scene": 2,
+    "duration": 15.062012,
+    "width": 2496,
+    "height": 840,
+    "fps": 16,
+    "labelFontSize": 42,
+    "labelBandHeight": 60,
+    "order": [
+      "Input frame",
+      "GT video",
+      "Geometry Forcing",
+      "Gen3R",
+      "Gen3C",
+      "Uni3C",
+      "Wan",
+      "Ours (GAD)"
+    ],
+    "sources": [
+      "static/scene2/input-frame.png",
+      "static/scene2/gt.mp4",
+      "static/scene2/GeometryForcing.mp4",
+      "static/scene2/Gen3R.mp4",
+      "static/scene2/Gen3C.mp4",
+      "static/scene2/Uni3C.mp4",
+      "static/scene2/wan-flow-only.mp4",
+      "static/scene2/ours.mp4"
+    ]
+  },
+  {
+    "category": "static",
+    "scene": 3,
+    "duration": 15.062012,
+    "width": 2496,
+    "height": 840,
+    "fps": 16,
+    "labelFontSize": 42,
+    "labelBandHeight": 60,
+    "order": [
+      "Input frame",
+      "GT video",
+      "Geometry Forcing",
+      "Gen3R",
+      "Gen3C",
+      "Uni3C",
+      "Wan",
+      "Ours (GAD)"
+    ],
+    "sources": [
+      "static/scene3/input-frame.png",
+      "static/scene3/gt.mp4",
+      "static/scene3/GeometryForcing.mp4",
+      "static/scene3/Gen3R.mp4",
+      "static/scene3/Gen3C.mp4",
+      "static/scene3/Uni3C.mp4",
+      "static/scene3/wan-flow-only.mp4",
+      "static/scene3/ours.mp4"
+    ]
+  },
+  {
+    "category": "static",
+    "scene": 4,
+    "duration": 15.062012,
+    "width": 2496,
+    "height": 840,
+    "fps": 16,
+    "labelFontSize": 42,
+    "labelBandHeight": 60,
+    "order": [
+      "Input frame",
+      "GT video",
+      "Geometry Forcing",
+      "Gen3R",
+      "Gen3C",
+      "Uni3C",
+      "Wan",
+      "Ours (GAD)"
+    ],
+    "sources": [
+      "static/scene4/input-frame.png",
+      "static/scene4/gt.mp4",
+      "static/scene4/GeometryForcing.mp4",
+      "static/scene4/Gen3R.mp4",
+      "static/scene4/Gen3C.mp4",
+      "static/scene4/Uni3C.mp4",
+      "static/scene4/wan-flow-only.mp4",
+      "static/scene4/ours.mp4"
+    ]
+  },
+  {
+    "category": "static",
+    "scene": 5,
+    "duration": 15.062012,
+    "width": 2496,
+    "height": 840,
+    "fps": 16,
+    "labelFontSize": 42,
+    "labelBandHeight": 60,
+    "order": [
+      "Input frame",
+      "GT video",
+      "Geometry Forcing",
+      "Gen3R",
+      "Gen3C",
+      "Uni3C",
+      "Wan",
+      "Ours (GAD)"
+    ],
+    "sources": [
+      "static/scene5/input-frame.png",
+      "static/scene5/gt.mp4",
+      "static/scene5/GeometryForcing.mp4",
+      "static/scene5/Gen3R.mp4",
+      "static/scene5/Gen3C.mp4",
+      "static/scene5/Uni3C.mp4",
+      "static/scene5/wan-flow-only.mp4",
+      "static/scene5/ours.mp4"
+    ]
+  },
+  {
+    "category": "static",
+    "scene": 6,
+    "duration": 15.062012,
+    "width": 2496,
+    "height": 840,
+    "fps": 16,
+    "labelFontSize": 42,
+    "labelBandHeight": 60,
+    "order": [
+      "Input frame",
+      "GT video",
+      "Geometry Forcing",
+      "Gen3R",
+      "Gen3C",
+      "Uni3C",
+      "Wan",
+      "Ours (GAD)"
+    ],
+    "sources": [
+      "static/scene6/input-frame.png",
+      "static/scene6/gt.mp4",
+      "static/scene6/GeometryForcing.mp4",
+      "static/scene6/Gen3R.mp4",
+      "static/scene6/Gen3C.mp4",
+      "static/scene6/Uni3C.mp4",
+      "static/scene6/wan-flow-only.mp4",
+      "static/scene6/ours.mp4"
+    ]
+  },
+  {
+    "category": "static",
+    "scene": 7,
+    "duration": 15.062012,
+    "width": 2496,
+    "height": 840,
+    "fps": 16,
+    "labelFontSize": 42,
+    "labelBandHeight": 60,
+    "order": [
+      "Input frame",
+      "GT video",
+      "Geometry Forcing",
+      "Gen3R",
+      "Gen3C",
+      "Uni3C",
+      "Wan",
+      "Ours (GAD)"
+    ],
+    "sources": [
+      "static/scene7/input-frame.png",
+      "static/scene7/gt.mp4",
+      "static/scene7/GeometryForcing.mp4",
+      "static/scene7/Gen3R.mp4",
+      "static/scene7/Gen3C.mp4",
+      "static/scene7/Uni3C.mp4",
+      "static/scene7/wan-flow-only.mp4",
+      "static/scene7/ours.mp4"
+    ]
+  },
+  {
+    "category": "dynamic",
+    "scene": 1,
+    "duration": 5.062012,
+    "width": 2496,
+    "height": 840,
+    "fps": 16,
+    "labelFontSize": 42,
+    "labelBandHeight": 60,
+    "order": [
+      "Input frame",
+      "GT video",
+      "Geometry Forcing",
+      "Gen3R",
+      "Gen3C",
+      "Uni3C",
+      "Wan",
+      "Ours (GAD)"
+    ],
+    "sources": [
+      "dynamic/scene1/input-frame.png",
+      "dynamic/scene1/gt.mp4",
+      "dynamic/scene1/GeometryForcing.mp4",
+      "dynamic/scene1/Gen3R.mp4",
+      "dynamic/scene1/Gen3C.mp4",
+      "dynamic/scene1/Uni3C.mp4",
+      "dynamic/scene1/wan-flow-only.mp4",
+      "dynamic/scene1/ours.mp4"
+    ]
+  },
+  {
+    "category": "dynamic",
+    "scene": 2,
+    "duration": 5.062012,
+    "width": 2496,
+    "height": 840,
+    "fps": 16,
+    "labelFontSize": 42,
+    "labelBandHeight": 60,
+    "order": [
+      "Input frame",
+      "GT video",
+      "Geometry Forcing",
+      "Gen3R",
+      "Gen3C",
+      "Uni3C",
+      "Wan",
+      "Ours (GAD)"
+    ],
+    "sources": [
+      "dynamic/scene2/input-frame.png",
+      "dynamic/scene2/gt.mp4",
+      "dynamic/scene2/GeometryForcing.mp4",
+      "dynamic/scene2/Gen3R.mp4",
+      "dynamic/scene2/Gen3C.mp4",
+      "dynamic/scene2/Uni3C.mp4",
+      "dynamic/scene2/wan-flow-only.mp4",
+      "dynamic/scene2/ours.mp4"
+    ]
+  },
+  {
+    "category": "dynamic",
+    "scene": 3,
+    "duration": 5.0625,
+    "width": 2496,
+    "height": 840,
+    "fps": 16,
+    "labelFontSize": 42,
+    "labelBandHeight": 60,
+    "order": [
+      "Input frame",
+      "GT video",
+      "Geometry Forcing",
+      "Gen3R",
+      "Gen3C",
+      "Uni3C",
+      "Wan",
+      "Ours (GAD)"
+    ],
+    "sources": [
+      "dynamic/scene3/input-frame.png",
+      "dynamic/scene3/gt.mp4",
+      "dynamic/scene3/GeometryForcing.mp4",
+      "dynamic/scene3/Gen3R.mp4",
+      "dynamic/scene3/Gen3C.mp4",
+      "dynamic/scene3/Uni3C.mp4",
+      "dynamic/scene3/wan-flow-only.mp4",
+      "dynamic/scene3/ours.mp4"
+    ]
+  },
+  {
+    "category": "dynamic",
+    "scene": 4,
+    "duration": 5.062012,
+    "width": 2496,
+    "height": 840,
+    "fps": 16,
+    "labelFontSize": 42,
+    "labelBandHeight": 60,
+    "order": [
+      "Input frame",
+      "GT video",
+      "Geometry Forcing",
+      "Gen3R",
+      "Gen3C",
+      "Uni3C",
+      "Wan",
+      "Ours (GAD)"
+    ],
+    "sources": [
+      "dynamic/scene4/input-frame.png",
+      "dynamic/scene4/gt.mp4",
+      "dynamic/scene4/GeometryForcing.mp4",
+      "dynamic/scene4/Gen3R.mp4",
+      "dynamic/scene4/Gen3C.mp4",
+      "dynamic/scene4/Uni3C.mp4",
+      "dynamic/scene4/wan-flow-only.mp4",
+      "dynamic/scene4/ours.mp4"
+    ]
+  },
+  {
+    "category": "dynamic",
+    "scene": 5,
+    "duration": 5.0625,
+    "width": 2496,
+    "height": 840,
+    "fps": 16,
+    "labelFontSize": 42,
+    "labelBandHeight": 60,
+    "order": [
+      "Input frame",
+      "GT video",
+      "Geometry Forcing",
+      "Gen3R",
+      "Gen3C",
+      "Uni3C",
+      "Wan",
+      "Ours (GAD)"
+    ],
+    "sources": [
+      "dynamic/scene5/input-frame.png",
+      "dynamic/scene5/gt.mp4",
+      "dynamic/scene5/GeometryForcing.mp4",
+      "dynamic/scene5/Gen3R.mp4",
+      "dynamic/scene5/Gen3C.mp4",
+      "dynamic/scene5/Uni3C.mp4",
+      "dynamic/scene5/wan-flow-only.mp4",
+      "dynamic/scene5/ours.mp4"
+    ]
+  },
+  {
+    "category": "dynamic",
+    "scene": 6,
+    "duration": 5.0625,
+    "width": 2496,
+    "height": 840,
+    "fps": 16,
+    "labelFontSize": 42,
+    "labelBandHeight": 60,
+    "order": [
+      "Input frame",
+      "GT video",
+      "Geometry Forcing",
+      "Gen3R",
+      "Gen3C",
+      "Uni3C",
+      "Wan",
+      "Ours (GAD)"
+    ],
+    "sources": [
+      "dynamic/scene6/input-frame.png",
+      "dynamic/scene6/gt.mp4",
+      "dynamic/scene6/GeometryForcing.mp4",
+      "dynamic/scene6/Gen3R.mp4",
+      "dynamic/scene6/Gen3C.mp4",
+      "dynamic/scene6/Uni3C.mp4",
+      "dynamic/scene6/wan-flow-only.mp4",
+      "dynamic/scene6/ours.mp4"
+    ]
+  },
+  {
+    "category": "dynamic",
+    "scene": 7,
+    "duration": 5.0625,
+    "width": 2496,
+    "height": 840,
+    "fps": 16,
+    "labelFontSize": 42,
+    "labelBandHeight": 60,
+    "order": [
+      "Input frame",
+      "GT video",
+      "Geometry Forcing",
+      "Gen3R",
+      "Gen3C",
+      "Uni3C",
+      "Wan",
+      "Ours (GAD)"
+    ],
+    "sources": [
+      "dynamic/scene7/input-frame.png",
+      "dynamic/scene7/gt.mp4",
+      "dynamic/scene7/GeometryForcing.mp4",
+      "dynamic/scene7/Gen3R.mp4",
+      "dynamic/scene7/Gen3C.mp4",
+      "dynamic/scene7/Uni3C.mp4",
+      "dynamic/scene7/wan-flow-only.mp4",
+      "dynamic/scene7/ours.mp4"
+    ]
+  }
+]

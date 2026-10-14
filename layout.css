@@ -1,0 +1,70 @@
+/* Academic project-page layout, following the supplied DP-Recon reference. */
+:root{--page-width:960px;--ink:#363636;--muted:#737373;--accent:#209cee;--line:#e8e8e8}
+body{font-family:"Noto Sans","Helvetica Neue",Arial,sans-serif;font-size:16px;line-height:1.65;color:var(--ink)}
+html{scroll-padding-top:24px}
+.hero{max-width:var(--page-width);padding:48px 24px 8px;margin:0 auto}
+h1{font-family:"Google Sans","Helvetica Neue",Arial,sans-serif;font-size:40px;line-height:1.18;letter-spacing:-1.2px;font-weight:600;margin:0 0 25px;color:#363636}
+h1 b{color:inherit;font-weight:700}h1>span{display:block}
+.authors{font-size:19px;line-height:1.7;column-gap:18px;row-gap:0;max-width:none;color:#363636}
+.author-row-break{display:block}.author sup{font-size:10px;color:#555}.author a{color:var(--accent)}
+.contributions{font-size:12px;gap:5px 18px;margin:12px 0 7px;color:#808080}
+.affiliations{font-size:14px;gap:2px 22px;line-height:1.65;color:#808080}
+.resource-links{margin-top:22px;gap:8px}.resource-links a{background:#363636;font-size:15px;padding:7px 19px}
+.hero-summary{font-family:inherit;font-size:18px;line-height:1.6;letter-spacing:0;margin:30px 0 12px;color:#4a4a4a}
+.section,.section.prose,.section.results{max-width:var(--page-width);width:100%;padding:36px 24px 10px;margin:0 auto}
+.prose{max-width:none}.section .prose{width:100%;max-width:none;margin-left:0;margin-right:0}
+h2{font-size:30px;line-height:1.25;letter-spacing:-.5px;font-weight:600;margin:0 0 22px;text-align:center}
+h3{font-size:23px;line-height:1.35;letter-spacing:-.3px;font-weight:600;margin:0 0 12px}
+.prose p{margin:0 0 18px;text-align:justify;line-height:1.75}.section-lead{font-size:16px;line-height:1.6;margin:-8px 0 22px;color:#666}
+.paper-figure{width:100%;margin:0 0 22px}.paper-figure img{width:100%;height:auto}.paper-figure figcaption{max-width:none;font-size:13px;line-height:1.6;margin:12px 0 0;color:#737373}
+.panel-label{font-size:12px;margin:8px 0 20px}.motivation-figure img:nth-of-type(2){margin-top:16px}.explanation{margin-top:24px}
+.method-steps{margin:22px 0 0;padding-left:24px;line-height:1.75}.method-steps li{margin-bottom:12px}
+.results .result-section{margin:27px 0 42px}.result-description{max-width:none;font-size:16px;line-height:1.65;color:#4a4a4a;margin:0 0 18px}
+video{border:0;border-radius:0;background:#f5f5f5}.comparison .thumbnails{margin-top:10px}.thumbnails{gap:10px;padding:5px 2px 9px}
+.thumbnail{flex:0 0 104px;border-radius:3px;padding:2px}.thumbnail img{width:96px;height:55px;border-radius:0}.thumbnail[aria-pressed=true]{background:transparent;border-color:#209cee}
+.comparison-note{margin:-15px 0 0;font-size:12px;line-height:1.8}.results .attention-section{margin-top:38px;margin-bottom:12px}
+.carousel{max-width:none;margin:18px 0 0}.carousel-controls{gap:18px;margin-bottom:16px;font-size:13px}.arrow{width:34px;height:34px;font-size:19px}.slide figcaption{font-size:13px;line-height:1.6;margin:12px 0 0}.figure-note{max-width:none;font-size:12px;margin:12px 0}
+footer{max-width:var(--page-width);margin:40px auto 0;padding:24px 24px 32px;background:white;border-top:1px solid var(--line);font-size:12px}
+@media(max-width:760px){
+ .hero{padding:32px 20px 6px}h1{font-size:30px;line-height:1.2;letter-spacing:-.7px;margin-bottom:22px}h1>span{display:inline}
+ .authors{font-size:16px;column-gap:13px;row-gap:3px}.author-row-break{display:none}.contributions{font-size:11px;gap:3px 12px}.affiliations{font-size:12px;gap:2px 14px}
+ .hero-summary{font-size:16px;margin:24px 0 8px;text-align:center}
+ .section,.section.prose,.section.results{padding:30px 20px 6px}h2{font-size:27px;margin-bottom:18px}h3{font-size:21px}.section-lead{font-size:15px}
+ .prose p{font-size:15px;text-align:left;line-height:1.7}.result-description,.method-steps{font-size:15px}.paper-figure figcaption,.slide figcaption{font-size:12px}.panel-label{font-size:11px}
+ .thumbnails{justify-content:flex-start;gap:7px}.thumbnail{flex-basis:82px}.thumbnail img{width:74px;height:43px}.results .result-section{margin-bottom:32px}footer{margin:30px 20px 0;padding:20px 0 26px}
+}
+
+.section.teaser{padding-top:18px;padding-bottom:0}.teaser .paper-figure{margin-bottom:0}.teaser .paper-figure>a{display:block}.teaser .paper-figure img{width:100%;height:auto}
+/* Use the reference's actual Bulma base and locally hosted typefaces. */
+body{font-family:'Noto Sans',sans-serif}
+.hero{display:block;padding-top:48px;padding-bottom:8px}
+h1{font-family:'Google Sans',sans-serif;font-size:40px;font-weight:600;line-height:1.125;letter-spacing:normal;margin-bottom:24px;word-break:normal}
+h1 b{font-weight:inherit}.publication-venue{font-family:'Noto Sans',sans-serif;font-size:24px;line-height:1.5;font-weight:700;color:#363636;margin:0 0 20px}
+.authors{font-family:'Google Sans',sans-serif;font-size:20px;line-height:1.7;column-gap:16px;row-gap:3px}
+.author sup,.affiliations sup,.contributions sup{font-size:.75em;line-height:0;position:relative;vertical-align:baseline;top:-.5em;margin-left:2px;color:inherit}
+.author sup{font-size:14px}.affiliations{font-family:'Google Sans',sans-serif;font-size:16px;line-height:1.65;margin-top:8px;color:#808080}.contributions{font-family:'Google Sans',sans-serif;font-size:14px;margin-top:16px}
+.resource-links{margin:24px 0 0;display:flex;justify-content:center;gap:10px;flex-wrap:wrap}.resource-button,.resource-links a{display:inline-flex;align-items:center;gap:8px;border-radius:999px;background:#363636;color:#fff;font-family:'Noto Sans',sans-serif;font-size:16px;line-height:1.5;padding:8px 18px;min-height:42px;text-decoration:none}.resource-button small{font-size:11px;color:#ddd;border-left:1px solid #777;padding-left:8px}.resource-icon{font-size:19px;line-height:1}.resource-button.coming-soon{cursor:default}.resource-button:hover{text-decoration:none}.hero-summary{margin-top:30px;font-family:'Google Sans',sans-serif;font-size:20px;line-height:1.5}
+.section h2{font-family:'Noto Sans',sans-serif;font-weight:600;letter-spacing:normal}.citation{padding-bottom:48px!important}.citation h2{text-align:left;font-size:28px;margin-bottom:18px}.citation pre{background:#f5f5f5;color:#4a4a4a;font-size:13px;line-height:1.65;padding:20px 24px;overflow-x:auto;border-radius:0;white-space:pre}.citation code{background:transparent;color:inherit;font-size:inherit;padding:0;font-family:monospace}
+@media(max-width:760px){h1{font-size:30px;line-height:1.2;letter-spacing:normal}.publication-venue{font-size:22px;margin-bottom:16px}.authors{font-size:18px;column-gap:13px;row-gap:5px}.author sup{font-size:13px}.affiliations{font-size:14px}.contributions{font-size:12px;line-height:1.8}.hero-summary{font-size:18px}.resource-button,.resource-links a{font-size:15px;padding:8px 14px}.citation pre{font-size:12px;padding:16px}}
+
+/* Slightly larger contribution and correspondence symbols; keep affiliation numbers unchanged. */
+.author sup .author-role-mark{font-size:1.2em;line-height:0}
+
+/* Match the 20% enlargement of author role symbols in the legend. */
+.contributions sup{font-size:.9em}
+
+/* Enlarge only the equal-contribution and corresponding-author legend symbols by a further 30%. */
+.contributions>span:first-child sup,.contributions>span:last-child sup{font-size:1.17em}
+
+/* Enlarge the Project leader legend symbol by 15% from 0.9em. */
+.contributions>span:nth-child(2) sup{font-size:1.035em}
+
+@font-face{font-family:Academicons;src:url('assets/fonts/academicons.woff') format('woff');font-weight:400;font-style:normal;font-display:block}.resource-icon{display:inline-flex;width:18px;height:20px;align-items:center;justify-content:center}.resource-icon.arxiv-icon{font-family:Academicons;font-weight:400;font-size:20px;font-style:normal}.resource-icon img{width:18px;height:18px}
+
+/* Compact scene names below both sets of result thumbnails. */
+.thumbnail .scene-caption{display:block;margin-top:5px;padding-bottom:2px;font-family:inherit;font-size:12px;font-weight:400;line-height:1.4;text-align:center;color:var(--muted)}.thumbnail[aria-pressed=true] .scene-caption{color:var(--accent);font-weight:600}@media(max-width:760px){.thumbnail .scene-caption{font-size:11px;margin-top:4px}}
+
+.method-components-intro{margin:22px 0 8px}.method-components-intro+.method-steps{margin-top:0}.method-summary{margin:18px 0 0;line-height:1.75}
+
+/* Slight desktop Abstract adjustment to avoid a two-word final line. */
+@media(min-width:761px){#abstract>p{font-size:15.9px}}

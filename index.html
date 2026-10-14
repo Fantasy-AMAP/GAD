@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="GAD transfers geometric correspondences into video attention during training for consistent long-range scenes and dynamic video generation, without additional inference modules.">
+  <meta name="theme-color" content="#ffffff">
+  <title>GAD: Geometry Attention Distillation for Consistent Video Generation</title>
+  <link rel="stylesheet" href="assets/fonts/fonts.css">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="layout.css">
+  <script src="content.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#abstract">Skip to content</a>
+<header class="hero" id="top">
+  <h1><span><b>GAD:</b> Geometry Attention Distillation</span> <span>for Consistent Video Generation</span></h1>
+  <p class="publication-venue">arXiv 2026</p>
+  <div class="authors" id="authors" aria-label="Authors"></div>
+  <p class="contributions"><span><sup>*</sup> Equal contribution</span><span><sup>†</sup> Project leader</span><span><sup>✉</sup> Corresponding author</span></p>
+  <div class="affiliations"><span><sup>1</sup> Tsinghua University</span><span><sup>2</sup> AMAP, Alibaba Group</span><span class="bigai"><sup>3</sup> State Key Laboratory of General Artificial Intelligence, BIGAI</span></div>
+  <div class="resource-links" id="resource-links" hidden></div>
+  <p class="hero-summary"><strong>TL;DR:</strong> GAD distills accurate geometric correspondences into video attention for more consistent scenes and moving objects, without additional inference modules.</p>
+</header>
+<main>
+  <section class="section teaser" aria-label="GAD overview">
+    <figure class="paper-figure">
+      <a href="assets/images/teaser.webp" target="_blank" rel="noopener" aria-label="View the teaser at full resolution"><img src="assets/images/teaser.webp" width="2400" height="971" alt="GAD distills geometry teacher attention into video attention during training. Compared with Wan, it preserves scene geometry across viewpoint changes and object structure during motion, without added inference cost." fetchpriority="high"></a>
+      <figcaption>Compared with the Wan baseline, GAD better preserves scene geometry along long-range camera trajectories and maintains object structure during motion, reducing geometric drift across changing viewpoints as well as structural degradation and object disappearance over time.</figcaption>
+    </figure>
+  </section>
+  <section class="section prose" id="abstract">
+    <h2>Abstract</h2>
+    <p>Video diffusion models generate visually compelling short-term sequences but often struggle to preserve scene geometry and object structure over time. In this paper, we first demonstrate that current video attention cannot identify reliable correspondences across frames, with responses dispersed across multiple regions even after recognizable scene structure has emerged. We argue that reliable cross-frame associations are essential for information exchange as scene structure forms in video generation. Thus, we introduce Geometry Attention Distillation (<strong>GAD</strong>), which transfers correspondences from a frozen geometry model's attention to video attention. Extracted from clean videos, these correspondences link the same static surface or moving object across frames. Since structure formation begins in deeper layers at higher noise and shallower layers at lower noise, we apply attention distillation at a student layer selected according to the noise timestep. After training, video attention focuses more consistently on corresponding locations. Experiments across all three video backbones demonstrate improved long-range scene consistency and dynamic temporal consistency, with geometric gains across generation lengths. On Wan2.2 5B, GAD improves cross-frame matching accuracy by at least 30% over the Wan baseline on both long-range benchmarks. Notably, GAD achieves these gains without additional inference modules, offering a promising approach to efficient and consistent video-based world simulation.</p>
+  </section>
+  <section class="section" id="motivation">
+    <h2>Motivation</h2>
+    <figure class="paper-figure motivation-figure">
+      <div class="motivation-reveal" role="img" aria-label="Video attention analysis: query and target views appear first, followed by marked correspondences, the full PCA matrix, the full attention matrix, and red structure-formation boxes.">
+        <div class="reveal-reference">
+          <div class="reveal-legend reveal-points"><span><i class="red-dot"></i>Query point</span><span><i class="blue-dot"></i>Ideal correspondence</span></div>
+          <div class="reveal-formation-key reveal-boxes"><i class="formation-outline" aria-hidden="true"></i>Structure-formation region</div>
+          <div class="reveal-view"><img src="assets/images/motivation/video-query.webp" width="832" height="480" alt="" loading="lazy"><i class="reveal-point reveal-points" style="left:55.77%;top:56.67%"></i></div>
+          <span class="reveal-caption">Query view</span>
+          <div class="reveal-view"><img src="assets/images/motivation/video-target.webp" width="832" height="480" alt="" loading="lazy"><i class="reveal-point ideal reveal-points" style="left:61.07%;top:63.14%"></i></div>
+          <span class="reveal-caption">Target view</span>
+        </div>
+<div class="reveal-matrix reveal-pca"><div class="reveal-layer-title">DiT Layer</div><div class="reveal-layers"><span>5</span><span>10</span><span>15</span><span>20</span><span>25</span></div><div class="reveal-matrix-body"><div class="reveal-noise"><span>1000</span><b>Denoising Timestep</b><span>0</span></div><div class="reveal-cells"><div class="reveal-cell"><img src="assets/images/motivation/pca-0-0.webp" width="832" height="480" alt="" loading="lazy"></div><div class="reveal-cell"><img src="assets/images/motivation/pca-0-1.webp" width="832" height="480" alt="" loading="lazy"></div><div class="reveal-cell"><img src="assets/images/motivation/pca-0-2.webp" width="832" height="480" alt="" loading="lazy"></div><div class="reveal-cell"><img src="assets/images/motivation/pca-0-3.webp" width="832" height="480" alt="" loading="lazy"></div><div class="reveal-cell"><img src="assets/images/motivation/pca-0-4.webp" width="832" height="480" alt="" loading="lazy"><i class="reveal-frame reveal-boxes"></i></div><div class="reveal-cell"><img src="assets/images/motivation/pca-1-0.webp" width="832" height="480" alt="" loading="lazy"></div><div class="reveal-cell"><img src="assets/images/motivation/pca-1-1.webp" width="832" height="480" alt="" loading="lazy"></div><div class="reveal-cell"><img src="assets/images/motivation/pca-1-2.webp" width="832" height="480" alt="" loading="lazy"></div><div class="reveal-cell"><img src="assets/images/motivation/pca-1-3.webp" width="832" height="480" alt="" loading="lazy"><i class="reveal-frame reveal-boxes"></i></div><div class="reveal-cell"><img src="assets/images/motivation/pca-1-4.webp" width="832" height="480" alt="" loading="lazy"><i class="reveal-frame reveal-boxes"></i></div><div class="reveal-cell"><img src="assets/images/motivation/pca-2-0.webp" width="832" height="480" alt="" loading="lazy"></div><div class="reveal-cell"><img src="assets/images/motivation/pca-2-1.webp" width="832" height="480" alt="" loading="lazy"></div><div class="reveal-cell"><img src="assets/images/motivation/pca-2-2.webp" width="832" height="480" alt="" loading="lazy"><i class="reveal-frame reveal-boxes"></i></div><div class="reveal-cell"><img src="assets/images/motivation/pca-2-3.webp" width="832" height="480" alt="" loading="lazy"><i class="reveal-frame reveal-boxes"></i></div><div class="reveal-cell"><img src="assets/images/motivation/pca-2-4.webp" width="832" height="480" alt="" loading="lazy"></div><div class="reveal-cell"><img src="assets/images/motivation/pca-3-0.webp" width="832" height="480" alt="" loading="lazy"></div><div class="reveal-cell"><img src="assets/images/motivation/pca-3-1.webp" width="832" height="480" alt="" loading="lazy"><i class="reveal-frame reveal-boxes"></i></div><div class="reveal-cell"><img src="assets/images/motivation/pca-3-2.webp" width="832" height="480" alt="" loading="lazy"><i class="reveal-frame reveal-boxes"></i></div><div class="reveal-cell"><img src="assets/images/motivation/pca-3-3.webp" width="832" height="480" alt="" loading="lazy"></div><div class="reveal-cell"><img src="assets/images/motivation/pca-3-4.webp" width="832" height="480" alt="" loading="lazy"></div><div class="reveal-cell"><img src="assets/images/motivation/pca-4-0.webp" width="832" height="480" alt="" loading="lazy"><i class="reveal-frame reveal-boxes"></i></div><div class="reveal-cell"><img src="assets/images/motivation/pca-4-1.webp" width="832" height="480" alt="" loading="lazy"><i class="reveal-frame reveal-boxes"></i></div><div class="reveal-cell"><img src="assets/images/motivation/pca-4-2.webp" width="832" height="480" alt="" loading="lazy"></div><div class="reveal-cell"><img src="assets/images/motivation/pca-4-3.webp" width="832" height="480" alt="" loading="lazy"></div><div class="reveal-cell"><img src="assets/images/motivation/pca-4-4.webp" width="832" height="480" alt="" loading="lazy"></div></div></div><div class="reveal-matrix-caption">Target-View Features (PCA)</div></div><div class="reveal-matrix reveal-attention"><div class="reveal-layer-title">DiT Layer</div><div class="reveal-layers"><span>5</span><span>10</span><span>15</span><span>20</span><span>25</span></div><div class="reveal-matrix-body"><div class="reveal-noise"><span>1000</span><b>Denoising Timestep</b><span>0</span></div><div class="reveal-cells"><div class="reveal-cell"><img src="assets/images/motivation/attention-0-0.webp" width="832" height="480" alt="" loading="lazy"></div><div class="reveal-cell"><img src="assets/images/motivation/attention-0-1.webp" width="832" height="480" alt="" loading="lazy"></div><div class="reveal-cell"><img src="assets/images/motivation/attention-0-2.webp" width="832" height="480" alt="" loading="lazy"></div><div class="reveal-cell"><img src="assets/images/motivation/attention-0-3.webp" width="832" height="480" alt="" loading="lazy"></div><div class="reveal-cell"><img src="assets/images/motivation/attention-0-4.webp" width="832" height="480" alt="" loading="lazy"><i class="reveal-frame reveal-boxes"></i></div><div class="reveal-cell"><img src="assets/images/motivation/attention-1-0.webp" width="832" height="480" alt="" loading="lazy"></div><div class="reveal-cell"><img src="assets/images/motivation/attention-1-1.webp" width="832" height="480" alt="" loading="lazy"></div><div class="reveal-cell"><img src="assets/images/motivation/attention-1-2.webp" width="832" height="480" alt="" loading="lazy"></div><div class="reveal-cell"><img src="assets/images/motivation/attention-1-3.webp" width="832" height="480" alt="" loading="lazy"><i class="reveal-frame reveal-boxes"></i></div><div class="reveal-cell"><img src="assets/images/motivation/attention-1-4.webp" width="832" height="480" alt="" loading="lazy"><i class="reveal-frame reveal-boxes"></i></div><div class="reveal-cell"><img src="assets/images/motivation/attention-2-0.webp" width="832" height="480" alt="" loading="lazy"></div><div class="reveal-cell"><img src="assets/images/motivation/attention-2-1.webp" width="832" height="480" alt="" loading="lazy"></div><div class="reveal-cell"><img src="assets/images/motivation/attention-2-2.webp" width="832" height="480" alt="" loading="lazy"><i class="reveal-frame reveal-boxes"></i></div><div class="reveal-cell"><img src="assets/images/motivation/attention-2-3.webp" width="832" height="480" alt="" loading="lazy"><i class="reveal-frame reveal-boxes"></i></div><div class="reveal-cell"><img src="assets/images/motivation/attention-2-4.webp" width="832" height="480" alt="" loading="lazy"></div><div class="reveal-cell"><img src="assets/images/motivation/attention-3-0.webp" width="832" height="480" alt="" loading="lazy"></div><div class="reveal-cell"><img src="assets/images/motivation/attention-3-1.webp" width="832" height="480" alt="" loading="lazy"><i class="reveal-frame reveal-boxes"></i></div><div class="reveal-cell"><img src="assets/images/motivation/attention-3-2.webp" width="832" height="480" alt="" loading="lazy"><i class="reveal-frame reveal-boxes"></i></div><div class="reveal-cell"><img src="assets/images/motivation/attention-3-3.webp" width="832" height="480" alt="" loading="lazy"></div><div class="reveal-cell"><img src="assets/images/motivation/attention-3-4.webp" width="832" height="480" alt="" loading="lazy"></div><div class="reveal-cell"><img src="assets/images/motivation/attention-4-0.webp" width="832" height="480" alt="" loading="lazy"><i class="reveal-frame reveal-boxes"></i></div><div class="reveal-cell"><img src="assets/images/motivation/attention-4-1.webp" width="832" height="480" alt="" loading="lazy"><i class="reveal-frame reveal-boxes"></i></div><div class="reveal-cell"><img src="assets/images/motivation/attention-4-2.webp" width="832" height="480" alt="" loading="lazy"></div><div class="reveal-cell"><img src="assets/images/motivation/attention-4-3.webp" width="832" height="480" alt="" loading="lazy"></div><div class="reveal-cell"><img src="assets/images/motivation/attention-4-4.webp" width="832" height="480" alt="" loading="lazy"></div></div></div><div class="reveal-colorbar" aria-label="Attention response: high at the top, low at the bottom"><span>High</span><i></i><span>Low</span></div><div class="reveal-matrix-caption">Query-to-Target Attention</div></div>      </div>
+      <p class="panel-label">(a) Video model features and attention across noise levels and layers.</p>
+      <img src="assets/images/motivation-geometry.webp" width="2280" height="458" alt="Selected VGGT-Omega heads follow the same railing point and a person's hat across five target views." loading="lazy">
+      <p class="panel-label">(b) Geometry model attention on static surfaces and moving objects.</p>
+    </figure>
+    <div class="prose explanation"><p>Video attention often responds to multiple unrelated regions, even when recognizable scene structure has already emerged. Rather than focusing on the same scene element across frames, it can spread across regions with similar appearance, making cross-frame associations ambiguous and weakening scene and object consistency. In contrast, geometry model attention can more reliably follow the same static surface or moving object across frames. Building on this observation, GAD uses geometry model attention as a source of supervision during training. By distilling its more accurate attention patterns into video attention, GAD encourages the model to associate corresponding scene elements across frames, helping preserve scene geometry and object structure over time.</p></div>
+  </section>
+  <section class="section" id="method">
+    <h2>Method</h2>
+    <figure class="paper-figure"><img src="assets/images/method.webp" width="2760" height="778" alt="GAD overview: a frozen geometry teacher extracts correspondence targets from clean videos, which supervise video attention at a noise-selected layer during training." loading="lazy"></figure>
+    <p class="method-components-intro">GAD guides video attention with geometric correspondence supervision through three key components:</p>
+    <ol class="method-steps prose">
+      <li><strong>Extract reliable correspondences.</strong> Use a frozen VGGT-Ω teacher to extract cross-frame attention from clean videos, align it with the student's token grid, and weight correspondence targets by their reliability.</li>
+      <li><strong>Guide attention where structure forms.</strong> Select the student layer based on the noise timestep and apply geometry-teacher supervision as scene structure and cross-frame associations emerge.</li>
+      <li><strong>Learn spatial and temporal consistency.</strong> Combine pairwise and trackwise losses with the generation objective to improve correspondence accuracy between frame pairs and maintain consistent associations across frames.</li>
+    </ol>
+    <p class="method-summary">The geometry teacher's attention and additional supervision modules are needed only during training; inference uses the video model alone, with no additional modules or computational cost.</p>
+  </section>
+  <section class="section results" id="results">
+    <h2>Results</h2>
+    <article class="result-section" id="long-range">
+      <h3>Long-Range Video Generation</h3>
+      <p class="result-description">Compared with competing methods, GAD better preserves scene layout and geometric structure throughout long-range camera trajectories, reducing geometric drift as the viewpoint changes.</p>
+      <div class="comparison" data-category="static" aria-label="Long-range video comparisons">
+        <video muted loop playsinline preload="none" poster="assets/images/static-1-poster.jpg?v=labels56" aria-label="Long-range scene 1: eight-panel comparison"></video>
+        <p class="video-status" role="status" aria-live="polite" hidden></p>
+        <div class="thumbnails" role="group" aria-label="Choose a long-range scene"></div>
+      </div>
+    </article>
+    <article class="result-section" id="dynamic">
+      <h3>Dynamic Video Generation</h3>
+      <p class="result-description">GAD also enables moving characters and foreground objects to maintain more consistent structure, while keeping background layouts more stable across changing viewpoints.</p>
+      <div class="comparison" data-category="dynamic" aria-label="Dynamic video comparisons">
+        <video muted loop playsinline preload="none" poster="assets/images/dynamic-1-poster.jpg?v=labels56" aria-label="Dynamic scene 1: eight-panel comparison"></video>
+        <p class="video-status" role="status" aria-live="polite" hidden></p>
+        <div class="thumbnails" role="group" aria-label="Choose a dynamic scene"></div>
+      </div>
+    </article>
+    <article class="result-section attention-section" id="attention">
+      <h3>Video Attention Comparison</h3>
+      <p class="result-description">GAD focuses attention more consistently on corresponding regions across frames, improving scene and object consistency. Red dots indicate query points, and heatmaps visualize attention in subsequent views.</p>
+      <div class="carousel" aria-roledescription="carousel" aria-label="Video attention and generation results" tabindex="0">
+        <div class="carousel-controls"><button class="arrow previous" aria-label="Previous attention scene">←</button><span id="attention-label" aria-live="polite">Static scene · 1 / 2</span><button class="arrow next" aria-label="Next attention scene">→</button></div>
+        <div class="carousel-window"><div class="carousel-track">
+          <figure class="slide" role="group" aria-roledescription="slide" aria-label="1 of 2: Static scene"><img src="assets/images/attention-static.webp?v=query-point-20261013" width="2756" height="1445" alt="Static scene: GT, Wan and GAD views and attention maps, with red query points marked on the building in the input views." loading="lazy"><figcaption>Static scene: cross-view associations become more localized with GAD.</figcaption></figure>
+          <figure class="slide" role="group" aria-roledescription="slide" aria-label="2 of 2: Dynamic scene" aria-hidden="true" inert><img src="assets/images/attention-dynamic.webp?v=query-point-20261013" width="2754" height="1446" alt="Dynamic scene: GT, Wan and GAD views and attention maps, with red query points marked on the vehicle in the input views." loading="lazy"><figcaption>Dynamic scene: attention follows the moving object more consistently.</figcaption></figure>
+        </div></div>
+        <div class="carousel-dots" role="group" aria-label="Choose an attention scene"><button aria-label="Show static attention scene" aria-pressed="true"></button><button aria-label="Show dynamic attention scene" aria-pressed="false"></button></div>
+      </div>
+    </article>
+  </section>
+  <section class="section citation" id="citation">
+    <h2>Citation</h2>
+    <p style="margin-bottom:16px">If you find our work helpful, please cite GAD:</p>
+    <pre><code>@article{ni2026gad,
+  title={GAD: Geometry Attention Distillation for Consistent Video Generation},
+  author={Ni, Junfeng and Zhu, Ziyu and Jiang, Fan and Liu, Yu and Wang, Chiyu and Zhang, Jiawei and Sun, Zhaoxu and Xu, Mu and Huang, Siyuan and Chen, Yixin},
+  journal={arXiv preprint arXiv:2610.18779},
+  year={2026}
+}</code></pre>
+  </section>
+</main>
+
+<noscript><p class="noscript">Enable JavaScript for author information, scene selection and the attention carousel. Figures and the paper summary remain available above.</p></noscript>
+</body>
+</html>
