@@ -8,6 +8,7 @@
   <b>Fan Jiang</b><sup>2,*,†,✉</sup>,
   <b>Yu Liu</b><sup>1</sup>,
   <b>Chiyu Wang</b><sup>2</sup>,
+  <br>
   <b>Jiawei Zhang</b><sup>2</sup>,
   <b>Zhaoxu Sun</b><sup>2</sup>,
   <b>Mu Xu</b><sup>2</sup>,
