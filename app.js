@@ -42,23 +42,37 @@ document.querySelectorAll('.comparison').forEach(root => {
     status.textContent = message;
     status.hidden = !message;
   };
-  const startPlayback = () => video.play().catch(error => {
-    if (error.name === 'AbortError') return;
-    showStatus('Select a thumbnail to retry playback.');
-  });
+  const attachSource = () => {
+    const source = video.dataset.src;
+    if (!source || video.getAttribute('src') === source) return;
+    video.src = source;
+    video.load();
+  };
+  const startPlayback = () => {
+    attachSource();
+    return video.play().catch(error => {
+      if (error.name === 'AbortError') return;
+      showStatus('Select a thumbnail to retry playback.');
+    });
+  };
   video.resumePlayback = startPlayback;
   let current = 1;
   const name = category === 'static' ? 'Long-range' : 'Dynamic';
   function select(scene, play = true) {
     video.pause(); current = scene;
-    const mediaVersion = '?v=labels56';
-    video.style.aspectRatio = '2496 / 840';
-    video.poster = `assets/images/${category}-${scene}-poster.jpg${mediaVersion}`;
-    video.src = `assets/videos/${category}-${scene}.mp4${mediaVersion}`;
+    const posterVersion = '?v=labels56';
+    const mediaVersion = '?v=compressed-20261015';
+    const source = `assets/videos/${category}-${scene}.mp4${mediaVersion}`;
+    video.style.aspectRatio = '1664 / 560';
+    video.poster = `assets/images/${category}-${scene}-poster.jpg${posterVersion}`;
+    video.dataset.src = source;
+    if (video.hasAttribute('src') && video.getAttribute('src') !== source) {
+      video.removeAttribute('src');
+      video.load();
+    }
     video.setAttribute('aria-label', `${name} scene ${scene}: eight-panel comparison`);
     thumbs.querySelectorAll('button').forEach((button,i) => button.setAttribute('aria-pressed', String(i+1 === scene)));
     showStatus('');
-    video.load();
     if (play) startPlayback();
   }
   for (let scene = 1; scene <= content.sceneCounts[category]; scene++) {
@@ -102,7 +116,7 @@ if ('IntersectionObserver' in window) {
       visibleComparisons.delete(video);
       video.pause();
     }
-  }), {threshold: 0});
+  }), {threshold: 0, rootMargin: '240px 0px'});
   comparisons.forEach(video => observer.observe(video));
 } else {
   comparisons.forEach(video => {
